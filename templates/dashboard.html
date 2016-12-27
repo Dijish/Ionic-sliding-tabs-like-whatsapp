@@ -1,0 +1,77 @@
+<ion-view view-title="Dashboard">
+  <div class="tabs tabs-icon-only">
+      <a class="tab-item"
+        ng-class="{active: vm.dashboard.activeIndexView === $index}"
+        ng-click="vm.dashboard.slideTo($index)" ng-repeat="t in tabs">
+          <i class="icon ion-ios-pulse"></i>
+      </a>
+<!--       <a class="tab-item"
+         ng-class="{active: vm.dashboard.activeIndexView === 1}"
+         ng-click="vm.dashboard.slideTo(1)">
+          <i class="icon ion-ios-chatboxes-outline"></i>
+      </a>
+      <a class="tab-item"
+         ng-class="{active: vm.dashboard.activeIndexView === 2}"
+         ng-click="vm.dashboard.slideTo(2)">
+          <i class="icon ion-ios-gear-outline"></i>
+      </a> -->
+  </div>
+
+  <ion-content class="padding">
+    <ion-slides options="{keyboardControl: true, initialSlide: 0}" slider="vm.dashboard.slider">
+      <!-- status view -->
+      <ion-slide-page ng-repeat="t in tabs">
+        <div class="list card" ng-controller="DashCtrl">
+          <div class="item item-divider">Recent Updates</div>
+          <div class="item item-body">
+            <div>
+              There is a fire in <b>sector 3</b>
+            </div>
+          </div>
+        </div>
+        <div class="list card">
+          <div class="item item-divider">Health</div>
+          <div class="item item-body">
+            <div>
+              You ate an apple today!
+            </div>
+          </div>
+        </div>
+        <div class="list card">
+          <div class="item item-divider">Upcoming</div>
+          <div class="item item-body">
+            <div>
+              You have <b>29</b> meetings on your calendar tomorrow.
+            </div>
+          </div>
+        </div>
+      </ion-slide-page>
+
+      <!-- chat view -->
+     <!--  <ion-slide-page>
+        <ion-list ng-controller="ChatsCtrl">
+          <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/chats/{{chat.id}}">
+            <img ng-src="{{chat.face}}">
+            <h2>{{chat.name}}</h2>
+            <p>{{chat.lastText}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+
+            <ion-option-button class="button-assertive" ng-click="remove(chat)">
+              Delete
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
+      </ion-slide-page>
+
+      <!-- account view -->
+      <!-- <ion-slide-page>
+        <ion-list ng-controller="AccountCtrl">
+          <ion-toggle  ng-model="settings.enableFriends">
+              Enable Friends
+          </ion-toggle>
+        </ion-list>
+      </ion-slide-page>
+ --> -->
+    </ion-slides>
+  </ion-content>
+</ion-view>
